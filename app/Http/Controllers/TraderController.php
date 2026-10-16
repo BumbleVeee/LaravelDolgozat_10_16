@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Trader;
 use App\Http\Requests\StoreTraderRequest;
 use App\Http\Requests\UpdateTraderRequest;
+use Laravel\Mcp\Request;
 
 class TraderController extends Controller
 {
@@ -13,15 +14,15 @@ class TraderController extends Controller
      */
     public function index()
     {
-        //
+        return Trader::all();
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        Trader::create($request);
     }
 
     /**
@@ -29,7 +30,7 @@ class TraderController extends Controller
      */
     public function store(StoreTraderRequest $request)
     {
-        //
+        Trader::create($request);
     }
 
     /**
@@ -37,7 +38,7 @@ class TraderController extends Controller
      */
     public function show(Trader $trader)
     {
-        //
+        return Trader::find($trader);
     }
 
     /**
@@ -51,9 +52,9 @@ class TraderController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTraderRequest $request, Trader $trader)
+    public function update(Request $request)
     {
-        //
+        Trader::find($request);
     }
 
     /**
@@ -61,6 +62,6 @@ class TraderController extends Controller
      */
     public function destroy(Trader $trader)
     {
-        //
+        Trader::find($trader)->delete();
     }
 }
