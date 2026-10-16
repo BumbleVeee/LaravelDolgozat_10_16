@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('event_id');
+            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('event_id')->references('id')->on('events');
             $table->String('status');
             $table->timestamps();
         });

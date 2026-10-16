@@ -16,7 +16,7 @@ return new class extends Migration
             $table->String('name');
             $table->datetime('time');
             $table->String('address');
-            $table->foreignId('trader_id');
+            $table->foreignId('trader_id')->references('id')->on('traders');
             $table->timestamps();
         });
     }

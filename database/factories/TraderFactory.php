@@ -17,8 +17,10 @@ class TraderFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-            //
+        return [  
+            'name'=>fake()->name(),
+            'description'=>fake()->sentence(3),
+            'country'=>fake()->country()
         ];
     }
 }
